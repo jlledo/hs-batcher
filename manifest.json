@@ -1,0 +1,15 @@
+{
+	"manifest_version": 2,
+	"name": "HS Batcher",
+	"version": "1.0",
+
+	"description": "Create naive batch downloads before official HorribleSubs batches exist.",
+
+	"content_scripts": [
+		{
+			"matches": ["http://horriblesubs.info/shows/*"],
+			"js": ["batcher.js"]
+		}
+	],
+	"permissions": ["http://localhost/*"]
+}
