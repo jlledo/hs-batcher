@@ -31,11 +31,12 @@ function downloadVisibleLinks(res) {
 }
 
 function injectElements() {
-    let parent = document.querySelector(".episodecontainer");
+    let parent = document.querySelector(".episode-container");
 
     let div = document.createElement("div");
     div.setAttribute("class", "hs-batcher");
-    parent.insertBefore(div, parent.childNodes[2]);
+    div.style.paddingTop = "5px";
+    parent.insertBefore(div, parent.childNodes[4].nextSibling);
 
     let wrapper = document.createElement("div");
     wrapper.style.textAlign = "center";
@@ -45,7 +46,7 @@ function injectElements() {
     for (let i = 0; i < resList.length; i++) {
         let option = document.createElement("option");
         option.value = resList[i];
-        option.innerHTML = resList[i] + "p";
+        option.text = resList[i] + "p";
         select.append(option);
     }
     wrapper.append(select);
