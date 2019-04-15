@@ -3,6 +3,8 @@ WebExtension to create naive batch downloads before official HorribleSubs batche
 
 **Warning**: This extension was created for qBittorrent's WebUI, it currently does not work with other BitTorrent clients. I will update it to work with BitTorrent and uTorrent Soon™.
 
+**Warning**: This extension has only been tested on **Firefox**.
+
 Feel free to request or contribute any features.
 
 
