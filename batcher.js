@@ -1,3 +1,4 @@
+const DEBUG = false;
 const DRY_RUN = false;
 const resolutions = [360, 480, 720, 1080];
 
@@ -41,7 +42,18 @@ async function downloadVisibleLinks(res) {
         let downloadEndpoint = `http://${settings.host}:${settings.port}/${torrentAddPath}`;
 
         let magnetURLs = Array.from(magnets[res], a => a.href).reverse().join("\n");
-        post(downloadEndpoint, { urls: magnetURLs });
+
+        let callback = null;
+        if (DEBUG) {
+            callback = function (xhr) {
+                console.log(
+                    `Response from '${xhr.responseURL}':\n` +
+                    `Status: ${xhr.status}\n` +
+                    `Response: '${xhr.responseText}'`
+                );
+            }
+        }
+        post(downloadEndpoint, { urls: magnetURLs }, callback);
     } else {
         console.log("Magnets found for " + res + "p: " + magnets[res].length);
     }

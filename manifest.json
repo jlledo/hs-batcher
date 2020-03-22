@@ -20,7 +20,7 @@
         "options/defaults.json"
     ],
     "permissions": [
-        "http://localhost/*",
+        "http://*/*",
         "storage"
     ],
     "applications": {
