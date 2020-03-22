@@ -13,7 +13,19 @@
             ]
         }
     ],
+    "options_ui": {
+        "page": "options/options.html"
+    },
+    "web_accessible_resources": [
+        "options/defaults.json"
+    ],
     "permissions": [
-        "http://localhost/*"
-    ]
+        "http://localhost/*",
+        "storage"
+    ],
+    "applications": {
+        "gecko": {
+            "id": "hs-batcher@jlledo.addons.mozilla.org"
+        }
+    }
 }
