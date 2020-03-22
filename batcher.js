@@ -1,6 +1,6 @@
 var DRY_RUN = false;
 var resList = [480, 720, 1080];
-var downloadPath = "http://localhost:8080/command/download";
+var downloadPath = "http://localhost:8080/api/v2/torrents/add";
 
 function post(path, params, callback) {
     let xhr = new XMLHttpRequest();
