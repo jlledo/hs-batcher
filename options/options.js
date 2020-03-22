@@ -1,6 +1,7 @@
 function saveOptions(e) {
     let formData = new FormData(e.srcElement);
     browser.storage.sync.set({
+        apiVersion: formData.get("apiVersion"),
         host: formData.get("host"),
         port: formData.get("port"),
     });
@@ -13,6 +14,7 @@ async function restoreOptions() {
     let defaults = await response.json();
 
     let settings = await browser.storage.sync.get(defaults);
+    document.getElementById(`apiVersion${settings.apiVersion}`).checked = true;
     document.getElementById("host").value = settings.host;
     document.getElementById("port").value = settings.port;
 }

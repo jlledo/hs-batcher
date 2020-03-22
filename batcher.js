@@ -34,7 +34,11 @@ async function downloadVisibleLinks(res) {
 
     if (!DRY_RUN) {
         let settings = await getSettings();
-        let downloadEndpoint = `http://${settings.host}:${settings.port}/api/v2/torrents/add`;
+        let torrentAddPath = "api/v2/torrents/add";
+        if (settings.apiVersion == 1) {
+            torrentAddPath = "command/download";
+        }
+        let downloadEndpoint = `http://${settings.host}:${settings.port}/${torrentAddPath}`;
 
         let magnetURLs = Array.from(magnets[res], a => a.href).reverse().join("\n");
         post(downloadEndpoint, { urls: magnetURLs });
