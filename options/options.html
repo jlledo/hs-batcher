@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="options.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>HorribleSubs Batcher Settings</h1>
+
+    <form>
+        <div>
+            <h2>qBittorrent Version</h2>
+            <input type="radio" id="apiVersion1" name="apiVersion" value="1">
+            <label for="apiVersion1">v3.3.1-v4.0.4</label>
+
+            <input type="radio" id="apiVersion2" name="apiVersion" value="2">
+            <label for="apiVersion2">v4.1+</label>
+        </div>
+        <div>
+            <h2>Web API</h2>
+            <label>Host <input type="text" id="host" name="host"></label>
+            <label>Port <input type="number" id="port" name="port" min="1024" max="65535"></label>
+        </div>
+        <div id="status"></div>
+        <button type="submit">Save</button>
+    </form>
+
+    <script src="options.js"></script>
+</body>
+
+</html>

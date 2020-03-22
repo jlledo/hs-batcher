@@ -1,15 +1,31 @@
 {
-	"manifest_version": 2,
-	"name": "HS Batcher",
-	"version": "1.0.1",
-
-	"description": "Create naive batch downloads before official HorribleSubs batches exist.",
-
-	"content_scripts": [
-		{
-			"matches": ["https://horriblesubs.info/shows/*"],
-			"js": ["batcher.js"]
-		}
-	],
-	"permissions": ["http://localhost/*"]
+    "manifest_version": 2,
+    "name": "HS Batcher",
+    "version": "1.0.1",
+    "description": "Create naive batch downloads before official HorribleSubs batches exist.",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://horriblesubs.info/shows/*"
+            ],
+            "js": [
+                "batcher.js"
+            ]
+        }
+    ],
+    "options_ui": {
+        "page": "options/options.html"
+    },
+    "web_accessible_resources": [
+        "options/defaults.json"
+    ],
+    "permissions": [
+        "http://localhost/*",
+        "storage"
+    ],
+    "applications": {
+        "gecko": {
+            "id": "hs-batcher@jlledo.addons.mozilla.org"
+        }
+    }
 }
