@@ -7,8 +7,8 @@ function post(path, params, callback) {
 
     xhr.open("POST", path, true);
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4)
+    xhr.onreadystatechange = function () {
+        if (callback && xhr.readyState == 4)
             callback(xhr);
     };
 
@@ -24,7 +24,8 @@ function downloadVisibleLinks(res) {
     magnets[res] = document.querySelectorAll("div[class$='" + res + "p'] a[title='Magnet Link']");
 
     if (!DRY_RUN) {
-        magnets[res].forEach(magnet => post(downloadPath, {"urls": magnet.href}, (xhr) => console.log(xhr.response)));
+        let magnetURLs = Array.from(magnets[res], a => a.href).reverse().join("\n");
+        post(downloadPath, { urls: magnetURLs });
     } else {
         console.log("Magnets found for " + res + "p: " + magnets[res].length);
     }
